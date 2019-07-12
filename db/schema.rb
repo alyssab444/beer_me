@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_10_000620) do
+ActiveRecord::Schema.define(version: 2019_07_12_232414) do
+
+  create_table "beers", force: :cascade do |t|
+    t.string "name"
+    t.string "style"
+    t.integer "abv"
+    t.integer "ibu"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_beers_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
