@@ -3,4 +3,6 @@ class Beer < ApplicationRecord
   has_many :comments
   has_many :commentors, through: :comments, source: 'user'
 
+  validates :name, :style, :region, :abv, presence: true 
+
 end
