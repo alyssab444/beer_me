@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_16_013434) do
+ActiveRecord::Schema.define(version: 2019_07_17_011837) do
 
-#Could not dump table "beers" because of following StandardError
-#   Unknown type 'region' for column 'ibu'
+  create_table "beers", force: :cascade do |t|
+    t.string "name"
+    t.string "style"
+    t.string "region"
+    t.integer "abv"
+    t.integer "creator_id"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -30,16 +35,5 @@ ActiveRecord::Schema.define(version: 2019_07_16_013434) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
-
-  create_table "beers", force: :cascade do |t|
-    t.string "name"
-    t.string "style"
-    t.string "region"
-    t.integer "abv"
-    t.integer "creator_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
 
 end
