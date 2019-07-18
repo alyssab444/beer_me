@@ -12,14 +12,14 @@ class UsersController < ApplicationController
       if @user.save
         #login the user
         session[:user_id] = @user.id
-        redirect_to users_path
+        redirect_to users_path(@user)
       else
         render :new
       end
   end
 
   def index
-
+    @user = User.find_by(params[:id])
   end
 
   private

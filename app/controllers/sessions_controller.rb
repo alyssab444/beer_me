@@ -15,12 +15,11 @@ class SessionsController < ApplicationController
     end
   end
 
-  def welcome
-
-  end
 
   def destroy
-    session.clear
+      session.clear
       redirect_to '/'
   end
+
+
 end
