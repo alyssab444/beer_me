@@ -1,14 +1,26 @@
 class BeersController < ApplicationController
 
+  def index
+    @beers = Beer.all
+  end
 
   def new
     @beer = Beer.new
+    #@beer.comments.build()
   end
 
   def create
       @beer = Beer.new(beer_params)
-      @beer.save
-      redirect_to '/beers'
+      if @beer.save
+        redirect_to beers_path(@beer)
+    else
+      render :new
+    end
+end
+
+def show
+  @beer = Beer.find(params[:id])
+  #@comment = @beer.comments.build
 end
 
   def edit

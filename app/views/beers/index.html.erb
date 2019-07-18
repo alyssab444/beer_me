@@ -1,1 +1,17 @@
+<h1>Your Beers</h1>
 
+
+<% @beers.each do |beer| %>
+<ul>
+  <li>
+    <h4><b><%= link_to beer.name, beer_path(beer) %></h4></b>
+      <b>Style:</b><%= beer.style %><br>
+      <b>Region:</b> <%= beer.region %><br>
+      <b>Abv:</b> <%= beer.abv %><br>
+      </li>
+</ul>
+<% end %>
+
+<% if logged_in? %>
+<br><%= link_to "Add New Beer", new_beer_path %>
+<% end %>
