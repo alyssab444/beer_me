@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   #loading the signup form
   def new
     if logged_in?
-       redirect_to users_path(current_user)
+       redirect_to user_path(current_user)
      else
        @user = User.new
      end
@@ -16,13 +16,13 @@ class UsersController < ApplicationController
       if @user.save
         #login the user
         session[:user_id] = @user.id
-        redirect_to users_path(@user)
+        redirect_to user_path(@user)
       else
         render :new
       end
   end
 
-  def index
+  def show
     @user = User.find_by(params[:id])
   end
 

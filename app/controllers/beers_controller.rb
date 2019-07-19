@@ -12,7 +12,7 @@ class BeersController < ApplicationController
   def create
       @beer = Beer.new(beer_params)
       if @beer.save
-        redirect_to beers_path(@beer)
+        redirect_to beer_path(@beer)
     else
       render :new
     end
@@ -25,12 +25,10 @@ end
 
   def edit
     if logged_in?
-    @beer = Beer.find_by(params[:id])
-    @beer.update(beer_params)
+    @beer = Beer.find(params[:id])
   else
     redirect '/login'
-  end
-
+  end 
   end
 
 
