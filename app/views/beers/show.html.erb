@@ -1,7 +1,6 @@
-<center><h1 class="beerName"><%=@beer.name.titleize%></h1><br>
-Style: <h3 class="beerStyle"><%=@beer.style.titleize%></h3><br>
-<p>Region:<h5 class="beerRegion"><%=@beer.region%></h5><br></p></center>
-<br>
-<br>
-<br>
+<%= link_to "Go Back", beers_path %>
 <center>
+  <h1 class="beerName"><%=@beer.name%></h1>
+Style: <h3 class="beerStyle"><%=@beer.style%></h3>
+Region:<h3 class="beerRegion"><%=@beer.region%></h3>
+</center>

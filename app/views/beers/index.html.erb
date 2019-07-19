@@ -8,10 +8,11 @@
       <b>Style:</b><%= beer.style %><br>
       <b>Region:</b> <%= beer.region %><br>
       <b>Abv:</b> <%= beer.abv %><br>
+      <h5> <%= link_to "Edit", edit_beers_path %></h5>
       </li>
 </ul>
 <% end %>
 
 <% if logged_in? %>
-<br><%= link_to "Add New Beer", new_beer_path %>
+<br><%= link_to "Add a New Beer", new_beer_path %>
 <% end %>
