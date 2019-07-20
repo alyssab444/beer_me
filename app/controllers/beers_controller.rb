@@ -1,9 +1,10 @@
 class BeersController < ApplicationController
-  before_action :current_user, only: [:edit, :destroy]
+  before_action :current_user#, only: [:edit, :destroy]
 
   def index
     @beers = Beer.all
   end
+  
 
   def new
     @beer = Beer.new
@@ -21,7 +22,6 @@ end
 
 def show
   @beer = Beer.find(params[:id])
-  #@comment = @beer.comments.build
 end
 
   def edit

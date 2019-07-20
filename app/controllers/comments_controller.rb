@@ -5,10 +5,10 @@ class CommentsController < ApplicationController
     @recent_comments = Comments.recent_comments
   end
 
-  #def index
-  #@beer = Beer.find_by(params[:beer_id])
-  #@comments = @beer.comments
-  #end
+  def index
+  @beer = Beer.find_by(params[:beer_id])
+  @comments = @beer.comments
+  end
 
   def new
     @comment = Comment.new
@@ -27,9 +27,6 @@ class CommentsController < ApplicationController
   def show
     @comment = Comment.find_by(params[:beer_id])
   end
-def index
-
-end 
 
 
   private

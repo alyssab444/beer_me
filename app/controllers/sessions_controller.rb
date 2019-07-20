@@ -6,6 +6,8 @@ class SessionsController < ApplicationController
   end
 
   def create
+    if request.env["omniauth.auth"]
+    else
     @user = User.find_by(username: params[:user][:username])
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
@@ -15,10 +17,15 @@ class SessionsController < ApplicationController
       render :login
     end
   end
+end 
+
+
+
 
   def destroy
       session.clear
       redirect_to '/'
   end
+
 
 end
