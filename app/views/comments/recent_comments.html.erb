@@ -1,0 +1,10 @@
+<h1>Recent Comments</h1>
+
+<% @recent_comments.each do |comment| %>
+<ul>
+  <h4><li>Name: <%= link_to comment.beer.name, beer_path(comment.beer) %></li></h4>
+  <b>Style:</b> <%= comment.name %><br>
+  <b>Content:</b> <%= comment.content %><br>
+</ul>
+
+<% end %>

@@ -1,6 +1,7 @@
-<%= link_to "Go Back", beers_path %>
+<%= link_to "Home", beers_path(current_user) %>
 <center>
   <h1 class="beerName"><%=@beer.name%></h1>
 Style: <h3 class="beerStyle"><%=@beer.style%></h3>
 Region:<h3 class="beerRegion"><%=@beer.region%></h3>
+Abv:<h3 class="beerAbv"><%=@beer.abv%></h3>
 </center>

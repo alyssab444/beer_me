@@ -1,0 +1,6 @@
+<%= form_for (@comment)  do |comment| %>
+
+      <%= comment.label :content %>
+      <%= comment.text_area :content, class: 'form-control' %>
+      <%= comment.submit class: "btn btn-primary", data: { disable_with: false }%>
+<% end %>

@@ -1,18 +1,17 @@
 <h1><%= @beer.name %></h1>
 <h2>Edit Beer</h2>
 <%= form_for [@beer]  do |beer| %>
+    <%= beer.label :name %>
+    <%= beer.text_field :name %>
 
+    <%= beer.label :style %>
+    <%= beer.text_field :style %>
 
+    <%= beer.label :region %>
+    <%= beer.text_field :region %>
 
-      <%= beer.label :name %>
-      <%= beer.text_field :name %>
+    <%= beer.label :abv %>
+    <%= beer.text_field :abv %>
 
-      <%= beer.label :style %>
-      <%= beer.text_area :style %>
-
-      <%= beer.label :region %>
-      <%= beer.text_field :region %>
-
-      <%= beer.submit "Submit" %>
-
+    <%= beer.submit "Submit" %>
 <% end %>

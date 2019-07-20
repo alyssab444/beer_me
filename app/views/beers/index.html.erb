@@ -8,7 +8,9 @@
       <b>Style:</b><%= beer.style %><br>
       <b>Region:</b> <%= beer.region %><br>
       <b>Abv:</b> <%= beer.abv %><br>
+      <h5> <%= link_to "Add a comment", new_comment_path(beer) %></h5>
       <h5> <%= link_to "Edit", edit_beer_path(beer) %></h5>
+      <h5> <%= link_to "Delete", beers_path(current_user, beer) %></h5>
       </li>
 </ul>
 <% end %>
