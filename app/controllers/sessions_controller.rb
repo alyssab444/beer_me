@@ -6,24 +6,31 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if request.env["omniauth.auth"]
-    else
-    @user = User.find_by(username: params[:user][:username])
-    if @user && @user.authenticate(params[:user][:password])
-      session[:user_id] = @user.id
+    @user = User.find_by(username: params[:username])
+    if @user && @user.authenticate(params[:password])
+      log_in(@user)
       redirect_to user_path(@user)
     else
       #flash.now[:danger] = 'Invalid username/password combination'
       render :login
     end
   end
-end 
 
+  def gitcreate
+    @user = User.find_or_create_from_omniauth(auth)
+    log_in(@user)
+    redirect_to user_path(@user)
+  end
+
+
+  def auth
+    request.env['omniauth.auth']
+  end
 
 
 
   def destroy
-      session.clear
+      session.clear :user_id
       redirect_to '/'
   end
 

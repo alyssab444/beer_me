@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   root 'sessions#welcome'
-  get '/auth/:provider/callback', to: 'sessions#create'
+  get '/auth/:provider/callback', to: 'sessions#gitcreate'
   get '/signup', to:'users#new'
   post '/signup', to:'users#create'
   get '/login', to:'sessions#new'
   post '/login', to:'sessions#create'
-  delete '/logout', to:'sessions#destroy'
+  delete '/logout', to: 'sessions#destroy'
   resources :users, except: [:new, :create]
   #get '/beers/:id/edit', to:'beers#edit', as: 'edit_beers'
   resources :beers
