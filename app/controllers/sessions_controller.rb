@@ -6,8 +6,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(username: params[:username])
-    if @user && @user.authenticate(params[:password])
+    @user = User.find_by(username: params[:user][:username])
+    if @user && @user.authenticate(params[:user][:password])
       log_in(@user)
       redirect_to user_path(@user)
     else
@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
 
 
   def destroy
-      session.clear :user_id
+      session.clear
       redirect_to '/'
   end
 
