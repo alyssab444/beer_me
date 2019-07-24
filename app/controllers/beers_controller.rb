@@ -1,19 +1,17 @@
 class BeersController < ApplicationController
-  before_action :current_user, only: [:index, :new]
+  before_action :current_user, only: [:index, :new, :create, :update]
 
   def index
     @beers = @current_user.created_beers
 
   end
 
-
   def new
     @beer = Beer.new
-    #@beer.comments.build()
   end
 
   def create
-      @beer = Beer.new(beer_params)
+      @beer = @current_user.created_beers.build(beer_params)
       if @beer.save
         redirect_to beer_path(@beer)
     else

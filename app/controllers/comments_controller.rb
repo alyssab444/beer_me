@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
-
+before_action :current_user, only: [:new, :create]
 
 
   def index
-    
+
   end
 
   def new
@@ -11,9 +11,11 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.create(user_id: current_user.id, beer_id: params[:beer_id])
+    @beer = Beer.find_by(params[:beer_id])
+    @comment = @beer.comments.build(comment_params)
+    @comment.user = current_user
       if @comment.save
-        redirect_to beers_path(@comment.user)
+        redirect_to comments_path#(@comment.user)
       else
         render :new
       end
