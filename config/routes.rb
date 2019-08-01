@@ -11,5 +11,13 @@ Rails.application.routes.draw do
   resources :beers
   get '/beers/:id' , to: 'beers#destroy'
   resources :comments
+
+  resources :users, only: [:show, :delete] do
+      resources :comments
+  end
+
+  resources :beers do
+    resources :comments
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,7 @@
+
+<%= link_to "Home", beers_path %>
+<br>
+<% @comments.each do |comment| %>
+<br>
+<%=comment.content%>
+<% end %>

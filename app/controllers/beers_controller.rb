@@ -35,18 +35,13 @@ end
     @beer = Beer.find(params[:id])
     if @beer.update(beer_params)
       flash[:success] = "Beer Updated!"
-      redirect_to beers_path(current_user)
+      redirect_to beers_path
     else
       render :edit
     end
   end
 
-  def destroy
-    @beer = Beer.find(params[:id])
-   @beer.destroy
-   flash[:success] = "Review deleted"
-   redirect_to beer_path(current_user)
-  end
+
 
 
 
