@@ -3,7 +3,7 @@ before_action :current_user, only: [:new, :create]
 
 
   def index
-  
+
   end
 
   def new
@@ -15,7 +15,7 @@ before_action :current_user, only: [:new, :create]
     @comment = @beer.comments.build(comment_params)
     @comment.user = current_user
       if @comment.save
-        redirect_to beers_path#(@comment.user)
+        redirect_to beers_path
       else
         render :new
       end

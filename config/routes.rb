@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/beers/:id' , to: 'beers#destroy'
   resources :comments
 
-  resources :users, only: [:show, :delete] do
+  resources :users, only: [:show] do
       resources :comments
   end
 

@@ -1,4 +1,9 @@
-<%= form_for (@comment)  do |comment| %>
+<%= form_for ([@beer, @comment])  do |comment| %>
+<ul>
+    <% @comment.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
   <%= comment.text_area :content %>
   <%= comment.submit %>
 <% end %>

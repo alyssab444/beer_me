@@ -3,6 +3,7 @@ class Beer < ApplicationRecord
   has_many :comments
   has_many :commentors, through: :comments, source: 'user'
 
-  validates :name, :style, :region, :abv, presence: true 
+  validates :name, :style, :region, :abv, presence: true
 
+  scope :recent_beers, -> { order(created_at: :desc) }
 end

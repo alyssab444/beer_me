@@ -2,6 +2,12 @@
 
 <%= form_for @user, url: signup_path do |f| %>
 
+<ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+
 <%= f.label :username %>
 <%= f.text_field :username %>
 <br/>

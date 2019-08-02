@@ -1,6 +1,11 @@
 class BeersController < ApplicationController
   before_action :current_user, only: [:index, :new, :create, :update]
 
+
+  def recent_beers
+    @recent_beers = Beer.recent_beers 
+  end
+
   def index
     @beers = @current_user.created_beers
 

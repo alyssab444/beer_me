@@ -1,5 +1,10 @@
 
 <%= form_for @beer do |f| %>
+<ul>
+    <% @beer.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
   <%= f.label :name %>
   <%= f.text_field :name %><br />
   <%= f.label :style %>
