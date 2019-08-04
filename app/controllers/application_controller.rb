@@ -7,9 +7,9 @@ class ApplicationController < ActionController::Base
   end
 
   def log_in(id)
-      session[:user_id] = @user.id
-  end
-
+        session[:user_id] = @user.id
+    end
+    
    def logged_in?
      session[:user_id]
    end
