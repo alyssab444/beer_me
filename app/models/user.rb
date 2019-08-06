@@ -7,10 +7,9 @@ class User < ApplicationRecord
   validates :username, :email, presence: true
   validates :username, :email, uniqueness:true
 
-  def self.create_with_omniauth(auth)
-    create! do |user|
-      user.provider = auth["provider"]
-      user.uid = auth["uid"]
-    end
-  end
+  def self.create_with_omniauth(auth_hash)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+          user.email = auth.info.email
+        end
+      end
 end

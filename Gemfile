@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.5'
  gem 'pry'
  gem 'omniauth'
  gem 'omniauth-github'
+ gem 'dotenv-rails'
+ gem 'devise'
 
 
 
