@@ -4,12 +4,13 @@ class User < ApplicationRecord
   has_many :comments
   has_many :commented_beers, through: :comments, source: 'Beer'
 
-  validates :username, :email, presence: true
-  validates :username, :email, uniqueness:true
+  validates :email, presence: true
+  validates :email, uniqueness:true
 
-  def self.create_with_omniauth(auth_hash)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-          user.email = auth.info.email
+  def self.find_or_create_by_omniauth(auth_hash)
+        where(provider: auth_hash.provider, uid: auth_hash.uid).first_or_create do |user|
+          user.email = auth_hash.info.email || auth_hash.info.nickname
+          user.password = SecureRandom.hex
         end
       end
-end
+    end
